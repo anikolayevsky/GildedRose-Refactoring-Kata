@@ -4,30 +4,28 @@ class GildedRose {
     Item[] items;
 
     public GildedRose(Item[] items) {
-        for(Item item : items) {
-            switch(item.name) {
-                case "Sulfuras":
-                    break;
-                case "Backstage passes":
-                    item = new BackstagePasses(item.name, item.sellIn, item.quality);
-                    break;
-                case "Aged Brie":
-                    item = new AgedBrie(item.name, item.sellIn, item.quality);
-                    break;
-                case "Conjured":
-                    item = new Conjured(item.name, item.sellIn, item.quality);
-                    break;
-                default:
-                    item = new Normal(item.name, item.sellIn, item.quality);
-                    break;
-
-            }
-        }
         this.items = items;
     }
 
     public void updateQuality() {
         for (int i = 0; i < items.length; i++) {
+            switch(items[i].name) {
+                case "Sulfuras":
+                    break;
+                case "Backstage passes":
+                    items[i] = new BackstagePasses(items[i].name, items[i].sellIn, items[i].quality);
+                    break;
+                case "Aged Brie":
+                    items[i] = new AgedBrie(items[i].name, items[i].sellIn, items[i].quality);
+                    break;
+                case "Conjured":
+                    items[i] = new Conjured(items[i].name, items[i].sellIn, items[i].quality);
+                    break;
+                default:
+                    items[i] = new Normal(items[i].name, items[i].sellIn, items[i].quality);
+                    break;
+
+            }
             items[i].tick();
         }
     }
