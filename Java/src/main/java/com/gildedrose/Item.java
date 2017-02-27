@@ -14,8 +14,10 @@ public class Item {
         this.quality = quality;
     }
 
-   @Override
-   public String toString() {
-        return this.name + ", " + this.sellIn + ", " + this.quality;
+    public void tick() {}
+
+    @Override
+    public String toString() {
+    return this.name + ", " + this.sellIn + ", " + this.quality;
     }
 }
